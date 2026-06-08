@@ -10,9 +10,9 @@
 
 # Overview
 
-Employee attrition is a major challenge for organizations due to the costs associated with recruitment, onboarding, training, and productivity loss.
+Employee attrition is a major challenge for organizations due to recruitment costs, training expenses, productivity loss, and employee replacement efforts.
 
-This project develops an end-to-end Machine Learning solution to predict employee attrition using HR analytics data. The objective is to identify employees at risk of leaving the organization and provide actionable insights to support employee retention strategies.
+This project develops an end-to-end Machine Learning solution to predict employee attrition using HR analytics data. The objective is to identify employees at risk of leaving the organization and provide actionable insights that support employee retention strategies.
 
 The project covers the complete Machine Learning lifecycle including:
 
@@ -23,7 +23,7 @@ The project covers the complete Machine Learning lifecycle including:
 * Hyperparameter Tuning
 * Threshold Optimization
 * MLflow Experiment Tracking
-* Gradio Application Development
+* Gradio Web Application Development
 * Hugging Face Deployment
 
 ---
@@ -40,20 +40,46 @@ The project covers the complete Machine Learning lifecycle including:
 
 ---
 
+# Application Preview
+
+## Home Interface
+
+The deployed Gradio application allows users to enter employee information and receive real-time attrition predictions.
+
+<img width="481" height="798" alt="screenshots:home" src="https://github.com/user-attachments/assets/493c4d5b-671e-49a5-af94-396a9006370b" />
+
+---
+
+## Prediction Output
+
+The application generates a prediction, attrition probability, risk level, and business recommendation.
+
+<img width="620" height="352" alt="screenshots:prediction" src="https://github.com/user-attachments/assets/33a175ee-21ce-4821-972f-e73f271bb424" />
+
+---
+
+## MLflow Experiment Tracking
+
+MLflow was used to compare multiple models and track evaluation metrics across experiments.
+
+<img width="1086" height="331" alt="screenshots:mlflow" src="https://github.com/user-attachments/assets/837262b3-4d28-4adc-af26-bee9bf97abd6" />
+
+---
+
 # Problem Statement
 
 Predict whether an employee is likely to leave the organization using demographic, compensation, satisfaction, and employment-related features.
 
 ### Target Variable
 
-**Attrition**
+Attrition
 
-* Yes = Employee left the company
-* No = Employee stayed in the company
+* Yes = Employee left
+* No = Employee stayed
 
 ### Machine Learning Task
 
-**Binary Classification**
+Binary Classification
 
 ---
 
@@ -61,7 +87,7 @@ Predict whether an employee is likely to leave the organization using demographi
 
 Dataset Used:
 
-**IBM HR Analytics Employee Attrition Dataset**
+IBM HR Analytics Employee Attrition Dataset
 
 The dataset contains employee information including:
 
@@ -108,6 +134,8 @@ Gradio Web Application
 Hugging Face Deployment
 ```
 
+---
+
 # Data Preprocessing
 
 The following preprocessing steps were performed:
@@ -134,8 +162,7 @@ The following Machine Learning algorithms were evaluated:
 
 ### Logistic Regression
 
-* Interpretable
-* Fast training
+* Fast and interpretable
 * Probability outputs
 * Easy deployment
 
@@ -148,6 +175,16 @@ The following Machine Learning algorithms were evaluated:
 
 * Gradient boosting algorithm
 * Strong predictive performance
+
+---
+
+# Key Achievements
+
+* Built and deployed a complete end-to-end Machine Learning application.
+* Compared Logistic Regression, Random Forest, and XGBoost models.
+* Improved Recall from 0.34 to 0.64 through threshold optimization.
+* Implemented MLflow for experiment tracking and reproducibility.
+* Deployed an interactive Gradio application on Hugging Face Spaces.
 
 ---
 
@@ -184,8 +221,6 @@ Benefits:
 
 GridSearchCV was used to optimize model performance.
 
-Parameters were systematically tested and evaluated using Cross Validation.
-
 Best Parameter:
 
 ```text
@@ -196,21 +231,17 @@ C = 10
 
 # Threshold Optimization
 
-The default Logistic Regression classification threshold is:
+Default Classification Threshold:
 
 ```text
 0.5
 ```
 
-However, the primary business objective was maximizing employee-risk detection.
-
-The threshold was optimized to:
+Optimized Threshold:
 
 ```text
 0.2
 ```
-
-Result:
 
 | Threshold | Recall |
 | --------- | ------ |
@@ -227,15 +258,19 @@ This nearly doubled the model's ability to identify employees likely to leave.
 | ------------------------------------- | -------- | --------- | ------ | -------- | ------- |
 | Logistic Regression (Threshold = 0.2) | 0.81     | 0.43      | 0.64   | 0.51     | 0.81    |
 
-### Business Interpretation
+---
 
-The model successfully identifies approximately 64% of employees who are likely to leave the organization, enabling proactive retention strategies.
+## Why Logistic Regression (Threshold = 0.2)?
+
+Although Logistic Regression (0.5) achieved higher accuracy (0.86), the threshold-optimized model achieved significantly higher Recall (0.64 vs 0.34).
+
+Since the objective was identifying employees likely to leave the organization, Recall was prioritized over Accuracy.
+
+Therefore, Logistic Regression with a threshold of 0.2 was selected as the final production model.
 
 ---
 
 # Key Business Insights
-
-Analysis revealed several important attrition drivers:
 
 ### Factors Increasing Attrition Risk
 
@@ -314,14 +349,16 @@ employee-attrition-prediction/
 ├── requirements.txt
 ├── Employee_Attrition_Analytics_&_Prediction_Platform.ipynb
 ├── README.md
+│
 └── screenshots/
+    ├── home.png
+    ├── prediction.png
+    └── mlflow.png
 ```
 
 ---
 
 # Future Enhancements
-
-Potential future improvements include:
 
 * SHAP Explainability
 * SMOTE for Class Imbalance Handling
@@ -358,4 +395,4 @@ https://huggingface.co/AsifKhandokar
 
 ---
 
-### If you found this project interesting, feel free to explore the repository, try the live demo, or connect with me on GitHub.
+If you found this project interesting, feel free to explore the repository, try the live demo, or connect with me on GitHub.
