@@ -40,29 +40,24 @@ The project covers the complete Machine Learning lifecycle including:
 
 ---
 
-# Application Preview
-
-## Home Interface
+Application Preview
+Home Interface
 
 The deployed Gradio application allows users to enter employee information and receive real-time attrition predictions.
 
-![Home Interface](screenshots/home.png)
+![Home Interface](screenshots/screenshots/home.png)
 
----
-
-## Prediction Output
+Prediction Output
 
 The application generates a prediction, attrition probability, risk level, and business recommendation.
 
-![Prediction Output](screenshots/prediction.png)
+![Prediction Output](screenshots/screenshots/prediction.png)
 
----
-
-## MLflow Experiment Tracking
+MLflow Experiment Tracking
 
 MLflow was used to compare multiple models and track evaluation metrics across experiments.
 
-![MLflow Tracking](screenshots/mlflow.png)
+![MLflow Tracking](screenshots/screenshots/mlflow.png)
 
 # Problem Statement
 
